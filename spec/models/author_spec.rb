@@ -12,14 +12,16 @@ RSpec.describe Author, type: :model do
     end
 
     it { expect(subject.valid?).to be_falsy }
-    it { expect(subject.errors.messages).to include(name: ['has already been taken']) }
+    it { expect(subject.errors.messages).to include(name: ['já está em uso']) }
   end
 
-  describe 'Name value object' do
+  describe '#name' do
     it { expect(subject.name).to be_a Name }
   end
 
+  describe '#name=' do
+    let(:name) { '  Fulano  ' }
 
-
-
+    it { expect(subject.name).to be_eql 'Fulano' }
+  end
 end
