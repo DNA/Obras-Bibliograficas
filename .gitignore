@@ -6,3 +6,5 @@ log/
 *.sqlite3
 
 master.key
+
+spec/examples.txt
