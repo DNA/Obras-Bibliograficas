@@ -1,0 +1,20 @@
+<div class="mx-auto w-2/3 my-10">
+  <h1 class="uppercase text-lg text-blue-400 font-bold mb-3">Autores</h1>
+
+  <div class="bg-white rounded shadow-xl">
+    <%= form_tag import_authors_path do %>
+      <div class="p-6">
+        <% unless @authors.all?(&:valid?) %>
+          <div class="mb-5 rounded border border-red-600 bg-red-200 text-red-600 px-3 py-2 shadow">
+            <strong>Atenção!</strong> Os itens marcados como inválidos não serão importados!
+          </div>
+        <% end %>
+
+        <%= render 'table_list' %>
+      </div>
+      <div class="bg-gray-200 px-6 py-3 rounded-b flex flex-row-reverse">
+        <%= submit_tag 'Importar', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
